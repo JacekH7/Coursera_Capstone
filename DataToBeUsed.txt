@@ -1,0 +1,18 @@
+Data to be used:
+Foursquare location data and cost of office spaces in Toronto split by sub-areas(main 3 areas) from
+https://www.statista.com/statistics/802500/asking-rent-per-sf-office-space-toronto-by-submarket/
+
+Steps
+1. get list and locations of all subway stations in Toronto - Foursquare
+2. get list of food/drink/recreational venues around stations' locations - various radius values (walking distance) - Foursquare
+3. develop criteria/weights to best score each neighbourhood around station e.g. breakfast, coffee shop, fast food/lunch, gym etc 
+	- types of venues – variety 
+	- popularity of venues
+	- required venues – number
+	- required venues - popularity
+	- office space cost
+4. shortlist 5 best locations selected using scored locations.
+
+
+
+
