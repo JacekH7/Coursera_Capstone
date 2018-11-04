@@ -1,0 +1,12 @@
+Business Problem Name:
+	Where to rent small start-up office within Toronto?
+
+Audience:
+	Small companies/start-ups wanting to set up office in Toronto.
+
+Background & Criteria:
+	In order to be attractive for prospective employees in addition to be close to public transport (subway) there should be enough attractive amenities around the office.
+	Office needs to be walking distance from any Toronto Subway station (0-500m)
+	There have to be enough breakfast, coffee and lunch places around.
+	Cost of the office space needs to be taken into account.
+	There should be leisure/recreational venues in vicinity (gym etc).
