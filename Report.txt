@@ -1,0 +1,78 @@
+Business Problem Name:
+	Where to rent small start-up office within Toronto?
+
+Audience:
+	Small companies/start-ups wanting to set up office in Toronto.
+
+Background & Criteria:
+	In order to be attractive for prospective employees in addition to be close to public transport (subway) there should be enough attractive amenities around the office.
+	Office needs to be walking distance from any Toronto Subway station (0-400m)
+	There have to be enough breakfast, coffee and lunch places around.
+	Cost of the office space needs to be taken into account.
+	There should be leisure/recreational venues in vicinity (gym etc).
+
+
+Data to be used:
+Foursquare location data and cost of office spaces in Toronto split by sub-areas(main 3 areas) from
+https://www.statista.com/statistics/802500/asking-rent-per-sf-office-space-toronto-by-submarket/
+
+Steps
+1. get list and locations of all subway stations in Toronto - Foursquare
+2. get list of food/drink/recreational venues around stations' locations - (walking distance from station radius) - Foursquare
+3. cluster locations with similar types of venues - explore various clustering methods
+4. select largetst clusters and only locations with required facilities
+5. develop criteria/weights to best score each neighbourhood around station e.g. breakfast, coffee shop, fast food/lunch, gym etc 
+	- types of venues – variety 
+	- required venues – number
+	- required venues - popularity
+	- office space cost
+6. shortlist 5 best locations selected using scored locations.
+
+Methodology
+Majority of data for the project was pulled from Foursquare - all popular venues around available metro stations.
+Venues which are not in scope/important for the purpose of project were removed from the lists. 
+Remaining venues were used for further analysis.
+In addition to venues station location category (Downtown, Midtown and Suburb) was used as one of clustering variables.
+Top 5 venues were examined in each location and top 15 were saved for further analysis.
+4 different clustering methods were attempted to see if they produce different results.
+- K-means
+- Agglomerative Clustering
+- Affinity Propagation
+- Mean Shift
+All of those were set/tuned to produce 5 clusters. Although different methods were used all produced similar results
+ie. 3 large clusters and 2 very small ones.
+For further analysis only locations from larger (more than 5 elements) clusters were used.
+Also, only locations with had all required types of venues were selected from each clustering method output.
+Those required types were:
+- coffee place
+- breakfast/lunch/fast food place
+- restaurant/bar/pub
+- fitness venue/gym 
+
+Output from each clustering method produced identical list of venues.
+
+Those were then scored using the following method:
+- each coffee and breakfast/lunch/fast food place got 0.5 points
+- each gym/fitness location got 1 point
+- each restaurant/bar/pub got 1 point
+- other venues from top 15 were given 0.25 points
+To take into account distance from city center the score were divided by it - ie further the distance, lower the score.
+Also score was divided by the average cost of office space in each location category.
+
+Top 5 locations with highest scores were shortlisted.
+
+Results
+Top 5 locations with highest scores
+Station Name			Station locationDistance	Score
+St Andrew Subway Station	Downtown	0.71169		0.048564
+Wellesley Subway Station	Downtown	1.266635	0.025987
+St. George Subway Station	Downtown	1.839471	0.018789
+Bloor-Yonge Subway Station	Downtown	1.869679	0.016725
+Pape Subway Station		Suburb		4.475966	0.012758
+
+
+Obeservations
+Different clustering methods delivered very similar clusters and the final lists were exactly the same from all of them.
+There were some clusters with single stations which were not that dramatically different from the other ones.
+
+
